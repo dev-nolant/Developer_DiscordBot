@@ -1,3 +1,0 @@
-string = list("[<ActionRow children=[<Button style=<ButtonStyle.danger: 4> custom_id='69bbfe0f84df1e01df97bbc2fec026e3' url=None disabled=False label='compile' emoji=<PartialEmoji animated=False name='❔' id=None>>, <Button style=<ButtonStyle.danger: 4> custom_id='8438ac3dc1a959422073639baa8bae09' url=None disabled=False label='Help' emoji=<PartialEmoji animated=False name='❔' id=None>>, <Button style=<ButtonStyle.danger: 4> custom_id='aff71e31a2931f039d557126f741def9' url=None disabled=False label='Misc' emoji=<PartialEmoji animated=False name='❔' id=None>>, <Button style=<ButtonStyle.danger: 4> custom_id='b883d1456cb3b031a4178db1a08fe780' url=None disabled=False label='wakatime' emoji=<PartialEmoji animated=False name='❔' id=None>>]>]")
-
-print(string[0][0])
