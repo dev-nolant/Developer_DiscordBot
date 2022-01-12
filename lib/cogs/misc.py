@@ -18,9 +18,8 @@ class Misc(Cog):
         self.bot = bot
 
     @command(name="prefix", description="Change the prefix for the given server.")
-       
     @has_permissions(manage_guild=True)
-    async def change_prefix(self, ctx, new: str=None):
+    async def change_prefix(self, ctx, new: str = None):
         await ctx.message.delete()
         try:
             if len(new) > 5:

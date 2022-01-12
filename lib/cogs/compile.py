@@ -5,7 +5,6 @@ from discord.ext.commands import Cog, command
 from discord.ext import commands
 
 
-
 class compile(commands.Cog, name="compile", description="Compile help"):
     """Compile Template"""
 

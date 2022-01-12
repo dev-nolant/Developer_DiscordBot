@@ -57,7 +57,8 @@ class Help(commands.Cog):
     # @commands.bot_has_permissions(add_reactions=True,embed_links=True)
     async def help(self, ctx, *input):
 
-        prefix = db.field("SELECT Prefix FROM guilds WHERE GuildID = ?", ctx.guild.id)
+        prefix = db.field(
+            "SELECT Prefix FROM guilds WHERE GuildID = ?", ctx.guild.id)
         version = "0.0.4"
 
         owner = "307867475410681857"

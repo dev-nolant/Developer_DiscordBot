@@ -16,13 +16,15 @@ from discord.ext.commands import CommandNotFound, when_mentioned_or
 
 from ..db import db
 
-OWNER_IDS = [307867475410681857] # Add your ID if you're going to run this bot.
+# Add your ID if you're going to run this bot.
+OWNER_IDS = [307867475410681857]
 COGS = [path.split("\\")[-1][:-3] for path in glob("lib/cogs/*.py")]
 
 
 def get_prefix(bot, message):
 
-    prefix = db.field("SELECT Prefix FROM guilds WHERE GuildID = ?", message.guild.id)
+    prefix = db.field(
+        "SELECT Prefix FROM guilds WHERE GuildID = ?", message.guild.id)
 
     return when_mentioned_or(prefix)(bot, message)
 
@@ -45,7 +47,8 @@ class Bot(BotBase):
         self.ready = False
         self.cogs_ready = Ready()
         self.guild = None
-        self.scheduler = BackgroundScheduler(timezone="America/Denver") # OPTIONAL: Change to your timezone
+        # OPTIONAL: Change to your timezone
+        self.scheduler = BackgroundScheduler(timezone="America/Denver")
         db.autosave(self.scheduler)
         super().__init__(
             command_prefix=get_prefix, owner_ids=OWNER_IDS, help_command=None
@@ -77,9 +80,9 @@ class Bot(BotBase):
 
     async def on_error(self, err, *args, **kwargs):
         if err == "on_command_error" and "Manage Server permission" not in args[1]:
-                await args[0].send(
-                    f"Something went wrong. Please ensure your command was correct. If you have further issues, please message <@307867475410681857>.\n||If this issue is realted to the WakaTime command, please make sure you have your APIKEY and Username correct.||"
-                ) # Modify as needed
+            await args[0].send(
+                f"Something went wrong. Please ensure your command was correct. If you have further issues, please message <@307867475410681857>.\n||If this issue is realted to the WakaTime command, please make sure you have your APIKEY and Username correct.||"
+            )  # Modify as needed
         else:
             pass
         raise
